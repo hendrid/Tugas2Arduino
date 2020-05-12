@@ -12,8 +12,7 @@ void loop() {
   ldr=analogRead(pinLdr);
   Serial.print("Nilai LDR = ");
   Serial.print(ldr);
-  if(ldr<766){
-      speed=ldr/3;
+  speed=map(ldr,0,1023,0,255);
       if(ldr<500){
         analogWrite(motorPinl, speed);
         analogWrite(motorPinr, 0); 
@@ -26,11 +25,5 @@ void loop() {
         Serial.print("\t >kanan> Kecepatan Motor = ");
         Serial.println(speed);
       }
-  }
-  else{
-    analogWrite(motorPinl,0);
-    analogWrite(motorPinr,0);  
-    Serial.println("\t Diluar batas(max LDR=765)!!");
-  }
   delay(100);
 }
