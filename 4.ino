@@ -19,7 +19,8 @@ void loop() {
   digitalWrite(trigPin, LOW); 
   duration = pulseIn(echoPin, HIGH); 
   distance = duration/58.2;
-  analogWrite(buzzerPin,(1118-distance)/4.38);
+  //distance max 1115
+  analogWrite(buzzerPin,(1115-distance)/4.37);
   Serial.print("Jarak : ");
   Serial.print(distance);
   Serial.println(" cm");
